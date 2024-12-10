@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import CountUp from "react-countup";
 import {
+  FaAngular,
+  FaBootstrap,
   FaCss3,
   FaFigma,
   FaHtml5,
@@ -12,6 +14,7 @@ import {
 import {
   SiAdobephotoshop,
   SiAdobexd,
+  SiDotnet,
   SiFramer,
   SiNextdotjs,
 } from "react-icons/si";
@@ -32,44 +35,23 @@ export const aboutData = [
           FaCss3,
           FaJs,
           FaReact,
-          SiNextdotjs,
-          SiFramer,
-          FaWordpress,
+          FaAngular,
+          FaBootstrap,
+          SiDotnet
         ],
-      },
-      {
-        title: "UI/UX Design",
-        icons: [FaFigma, SiAdobexd, SiAdobephotoshop],
-      },
-    ],
-  },
-  {
-    title: "awards",
-    info: [
-      {
-        title: "Webby Awards - Honoree",
-        stage: "2011 - 2012",
-      },
-      {
-        title: "Adobe Design Achievement Awards - Finalist",
-        stage: "2009 - 2010",
-      },
+      }
     ],
   },
   {
     title: "experience",
     info: [
       {
-        title: "UX/UI Designer - XYZ Company",
-        stage: "2012 - 2023",
+        title: "Web Developer - F2F",
+        stage: "2024 - 2024",
       },
       {
-        title: "Web Developer - ABC Agency",
-        stage: "2010 - 2012",
-      },
-      {
-        title: "Intern - DEF Corporation",
-        stage: "2008 - 2010",
+        title: "Intern - F2F",
+        stage: "2024 - 2024",
       },
     ],
   },
@@ -77,16 +59,8 @@ export const aboutData = [
     title: "credentials",
     info: [
       {
-        title: "Web Development - ABC University, LA, CA",
-        stage: "2011",
-      },
-      {
-        title: "Computer Science Diploma - AV Technical Institute",
-        stage: "2009",
-      },
-      {
-        title: "Certified Graphic Designer - ABC Institute, Los Angeles, CA",
-        stage: "2006",
+        title: "BBA-CA - Pune University",
+        stage: "2024",
       },
     ],
   },
