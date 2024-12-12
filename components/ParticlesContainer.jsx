@@ -38,7 +38,7 @@ const ParticlesContainer = () => {
           },
           modes: {
             push: {
-              quantity: 100,
+              quantity: 150,
             },
             repulse: {
               distance: 200,
