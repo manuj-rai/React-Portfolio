@@ -42,7 +42,7 @@ const Services = () => {
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="w-full xl:max-w-[65%]"
+            className="w-full xl:max-w-[55%]"
           >
             <ServiceSlider />
           </motion.div>
