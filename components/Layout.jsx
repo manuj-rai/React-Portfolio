@@ -26,7 +26,7 @@ const Layout = ({ children }) => {
         />
         <meta
           name="keywords"
-          content="react, next, nextjs, html, css, javascript, js, modern-ui, modern-ux, portfolio, personal portfolio, framer-motion, 3d-website, particle-effect"
+          content="react, next, nextjs, html, css, javascript, js, modern-ui, modern-ux, portfolio, personal portfolio, framer-motion, 3d-website, particle-effect, manuj rai portfolio"
         />
         <meta name="author" content="Manuj Rai" />
         <meta name="theme-color" content="#f13024" />
