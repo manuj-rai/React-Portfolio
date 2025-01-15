@@ -20,14 +20,8 @@ const Layout = ({ children }) => {
       {/* metadata */}
       <Head>
         <title>Manuj Rai - React Portfolio</title>
-        <meta
-          name="description"
-          content="React personal portfolio with tsParticles and modern ui/ux design using reat, nextjs, html, css, typescript..."
-        />
-        <meta
-          name="keywords"
-          content="manuj, rai, manuj rai, portfolio, react, next, nextjs, html, css, javascript, js, modern-ui, modern-ux, portfolio, personal portfolio, framer-motion, 3d-website, particle-effect, manuj rai portfolio"
-        />
+        <meta name="description" content="React personal portfolio with tsParticles and modern ui/ux design using reat, nextjs, html, css, typescript..."/>
+        <meta name="keywords" content="manuj, rai, manuj rai, portfolio, react, next, nextjs, html, css, javascript, js, modern-ui, modern-ux, portfolio, personal portfolio, framer-motion, 3d-website, particle-effect, manuj rai portfolio"/>
         <meta name="author" content="Manuj Rai" />
         <meta name="theme-color" content="#f13024" />
         <meta property="og:title" content="Manuj Rai - React Portfolio" />
