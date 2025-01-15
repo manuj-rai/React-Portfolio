@@ -83,8 +83,8 @@ const About = () => {
             exit="hidden"
             className="h2"
           >
-            Captivating <span className="text-accent">stories</span> birth
-            magnificent designs.
+          Crafting <span className='text-accent'>Webs</span> like Spider-Man, 
+          but mine catch bugs, not villains.
           </motion.h2>
           <motion.p
             variants={fadeIn("right", 0.4)}
@@ -92,8 +92,8 @@ const About = () => {
             animate="show"
             className="max-w-[500px] mx-auto xl:mx-0 mb-6 xl:mb-12 px-2 xl:px-0"
           >
-           Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+           {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+           Sed do eiusmod tempor incididunt. */}
           </motion.p>
 
           {/* counters */}
