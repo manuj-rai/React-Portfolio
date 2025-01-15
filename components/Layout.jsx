@@ -21,14 +21,22 @@ const Layout = ({ children }) => {
       <Head>
         <title>Manuj Rai - React Portfolio</title>
         <meta name="google-site-verification" content="gSlh7T20iaZygVYTxWU7ebIY6smlJFA33MfSiUex5ME" />
-        <meta name="description" content="React personal portfolio with tsParticles and modern ui/ux design using reat, nextjs, html, css, typescript..."/>
-        <meta name="keywords" content="manuj, rai, manuj rai, portfolio, react, next, nextjs, html, css, javascript, js, modern-ui, modern-ux, portfolio, personal portfolio, framer-motion, 3d-website, particle-effect, manuj rai portfolio"/>
+        <meta name="description" content="A modern React-based personal portfolio showcasing tsParticles integration, cutting-edge UI/UX design, and development with React, Next.js, HTML, CSS, and TypeScript."/>
+        <meta name="keywords" content="Manuj Rai, Manuj Rai portfolio, personal portfolio, React portfolio, Next.js portfolio, HTML CSS JavaScript, modern UI/UX design, Framer Motion, 3D website, particle effects, web developer portfolio" />
         <meta name="author" content="Manuj Rai" />
         <meta name="theme-color" content="#f13024" />
         <meta property="og:title" content="Manuj Rai - React Portfolio" />
         <meta property="og:description" content="React personal portfolio with tsParticles and modern ui/ux design using reat, nextjs, html, css, typescript..." />
         <meta property="og:url" content="https://manuj-rai-react-portfolio.vercel.app/"/>
-        <meta property="og:image" content="https://manuj-rai-react-portfolio.vercel.app/public/project-1.jpg" />
+        <meta property="og:image" content="https://manuj-rai-react-portfolio.vercel.app/project-1.jpg" />
+
+        {/* Twitter Card metadata */}
+        <meta name="twitter:card" content="summary_large_image"/> 
+        <meta name="twitter:site" content="@manuj-rai"/> 
+        <meta name="twitter:title" content="Manuj Rai - React Portfolio"/> 
+        <meta name="twitter:description" content="A modern React-based personal portfolio showcasing tsParticles integration, cutting-edge UI/UX design, and development with React, Next.js, HTML, CSS, and TypeScript." /> 
+        <meta name="twitter:image" content="https://manuj-rai-react-portfolio.vercel.app/project-1.jpg"/> 
+        <meta name="twitter:image:alt" content="Manuj Rai Modern React Portfolio "/>
       </Head>
 
       <TopLeftImg />
