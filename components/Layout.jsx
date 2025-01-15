@@ -26,10 +26,14 @@ const Layout = ({ children }) => {
         />
         <meta
           name="keywords"
-          content="react, next, nextjs, html, css, javascript, js, modern-ui, modern-ux, portfolio, personal portfolio, framer-motion, 3d-website, particle-effect, manuj rai portfolio"
+          content="manuj, rai, manuj rai, portfolio, react, next, nextjs, html, css, javascript, js, modern-ui, modern-ux, portfolio, personal portfolio, framer-motion, 3d-website, particle-effect, manuj rai portfolio"
         />
         <meta name="author" content="Manuj Rai" />
         <meta name="theme-color" content="#f13024" />
+        <meta property="og:title" content="Manuj Rai - React Portfolio" />
+        <meta property="og:description" content="React personal portfolio with tsParticles and modern ui/ux design using reat, nextjs, html, css, typescript..." />
+        <meta property="og:url" content="https://react-portfolio-livid-delta.vercel.app/"/>
+        <meta property="og:image" content="https://react-portfolio-livid-delta.vercel.app/public/project-1.jpg" />
       </Head>
 
       <TopLeftImg />
