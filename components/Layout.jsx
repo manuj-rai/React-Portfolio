@@ -27,8 +27,8 @@ const Layout = ({ children }) => {
         <meta name="theme-color" content="#f13024" />
         <meta property="og:title" content="Manuj Rai - React Portfolio" />
         <meta property="og:description" content="React personal portfolio with tsParticles and modern ui/ux design using reat, nextjs, html, css, typescript..." />
-        <meta property="og:url" content="https://react-portfolio-livid-delta.vercel.app/"/>
-        <meta property="og:image" content="https://react-portfolio-livid-delta.vercel.app/public/project-1.jpg" />
+        <meta property="og:url" content="https://manuj-rai-react-portfolio.vercel.app/"/>
+        <meta property="og:image" content="https://manuj-rai-react-portfolio.vercel.app/public/project-1.jpg" />
       </Head>
 
       <TopLeftImg />
