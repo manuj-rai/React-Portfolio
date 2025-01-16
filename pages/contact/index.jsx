@@ -5,23 +5,29 @@ import { fadeIn } from "../../variants";
 import { useState } from "react";
 
 const Contact = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [result, setResult] = React.useState("");
 
-  const handleSubmit = (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
-    setIsLoading(true);
+    setResult("Sending....");
+    const formData = new FormData(event.target);
 
-    const myForm = event.target;
-    const formData = new FormData(myForm);
+    formData.append("access_key", "f7c9479a-e5d3-401f-ad73-d2e54f1ec6e9");
 
-    fetch("/", {
+    const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString(),
-    })
-      .then(() => alert("Thank you. I will get back to you ASAP."))
-      .catch((error) => console.log(error))
-      .finally(() => setIsLoading(false));
+      body: formData
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      event.target.reset();
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
+    }
   };
 
   return (
@@ -47,12 +53,11 @@ const Contact = () => {
             animate="show"
             exit="hidden"
             className="flex-1 flex flex-col gap-6 w-full mx-auto"
-            onSubmit={handleSubmit}
+            onSubmit={onSubmit}
             autoComplete="off"
             autoCapitalize="off"
             // only needed for production (in netlify) to accept form input
             data-netlify="true"
-            action="https://api.web3forms.com/submit" method="POST"
           >
             {/* input group */}
             <div className="flex gap-x-6 w-full">
@@ -96,6 +101,7 @@ const Contact = () => {
               required
               aria-required
             />
+            <span>{result}</span>
             <button
               type="submit"
               className="btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent group"
