@@ -1,48 +1,54 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { BsArrowRight } from "react-icons/bs";
-
 import { fadeIn } from "../../variants";
-import { useState } from "react";
 
 const Contact = () => {
+  const [result, setResult] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null; // Render nothing during SSR
+  }
 
   const onSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
-    setResult("Sending....");
+    setResult("Sending...");
     const formData = new FormData(event.target);
-
     formData.append("access_key", "f7c9479a-e5d3-401f-ad73-d2e54f1ec6e9");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: formData,
-    });
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    if (data.success) {
-      setResult("Form Submitted Successfully");
-      event.target.reset();
-    } else {
-      setResult(data.message || "Submission failed. Please try again.");
+      if (data.success) {
+        setResult("Form Submitted Successfully");
+        event.target.reset();
+      } else {
+        setResult(data.message || "Submission failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setResult("Something went wrong. Please try again later.");
+    } finally {
+      setIsLoading(false);
     }
-  } catch (error) {
-    console.error("Error:", error);
-    setResult("Something went wrong. Please try again later.");
-  } finally {
-    setIsLoading(false);
-  }
-};
+  };
 
   return (
     <div className="h-full bg-primary/30">
       <div className="container mx-auto py-32 text-center xl:text-left flex items-center justify-center h-full">
-        {/* text & form */}
         <div className="flex flex-col w-full max-w-[700px]">
-          {/* text */}
           <motion.h2
             variants={fadeIn("up", 0.2)}
             initial="hidden"
@@ -52,8 +58,6 @@ const Contact = () => {
           >
             Let's <span className="text-accent">connect.</span>
           </motion.h2>
-
-          {/* form */}
           <motion.form
             variants={fadeIn("up", 0.4)}
             initial="hidden"
@@ -62,11 +66,7 @@ const Contact = () => {
             className="flex-1 flex flex-col gap-6 w-full mx-auto"
             onSubmit={onSubmit}
             autoComplete="off"
-            autoCapitalize="off"
-            // only needed for production (in netlify) to accept form input
-            data-netlify="true"
           >
-            {/* input group */}
             <div className="flex gap-x-6 w-full">
               <input
                 type="text"
@@ -74,9 +74,7 @@ const Contact = () => {
                 placeholder="Name"
                 className="input"
                 disabled={isLoading}
-                aria-disabled={isLoading}
                 required
-                aria-required
               />
               <input
                 type="email"
@@ -84,9 +82,7 @@ const Contact = () => {
                 placeholder="E-mail"
                 className="input"
                 disabled={isLoading}
-                aria-disabled={isLoading}
                 required
-                aria-required
               />
             </div>
             <input
@@ -95,18 +91,14 @@ const Contact = () => {
               placeholder="Subject"
               className="input"
               disabled={isLoading}
-              aria-disabled={isLoading}
               required
-              aria-required
             />
             <textarea
               name="message"
               placeholder="Message..."
               className="textarea"
               disabled={isLoading}
-              aria-disabled={isLoading}
               required
-              aria-required
             />
             <span
               className={`text-sm ${
@@ -120,16 +112,20 @@ const Contact = () => {
               type="submit"
               className="btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent group"
               disabled={isLoading}
-              aria-disabled={isLoading}
             >
-              <span className="group-hover:-translate-y-[120%] group-hover:opacity-0 transition-all duration-500">
-                Let's talk
+              <span
+                className={`group-hover:-translate-y-[120%] group-hover:opacity-0 transition-all duration-500 ${
+                  isLoading ? "opacity-50" : ""
+                }`}
+              >
+                {isLoading ? "Submitting..." : "Let's talk"}
               </span>
-
-              <BsArrowRight
-                className="-translate-y-[120%] opacity-0 group-hover:flex group-hover:-translate-y-0 group-hover:opacity-100 transition-all duration-300 absolute text-[22px]"
-                aria-hidden
-              />
+              {!isLoading && (
+                <BsArrowRight
+                  className="-translate-y-[120%] opacity-0 group-hover:flex group-hover:-translate-y-0 group-hover:opacity-100 transition-all duration-300 absolute text-[22px]"
+                  aria-hidden
+                />
+              )}
             </button>
           </motion.form>
         </div>
@@ -139,3 +135,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
