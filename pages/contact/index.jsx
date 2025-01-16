@@ -52,6 +52,7 @@ const Contact = () => {
             autoCapitalize="off"
             // only needed for production (in netlify) to accept form input
             data-netlify="true"
+            action="https://api.web3forms.com/submit" method="POST"
           >
             {/* input group */}
             <div className="flex gap-x-6 w-full">
