@@ -5,18 +5,20 @@ import { fadeIn } from "../../variants";
 import { useState } from "react";
 
 const Contact = () => {
-  const [result, setResult] = React.useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
     setResult("Sending....");
     const formData = new FormData(event.target);
 
     formData.append("access_key", "f7c9479a-e5d3-401f-ad73-d2e54f1ec6e9");
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
     });
 
     const data = await response.json();
@@ -25,10 +27,15 @@ const Contact = () => {
       setResult("Form Submitted Successfully");
       event.target.reset();
     } else {
-      console.log("Error", data);
-      setResult(data.message);
+      setResult(data.message || "Submission failed. Please try again.");
     }
-  };
+  } catch (error) {
+    console.error("Error:", error);
+    setResult("Something went wrong. Please try again later.");
+  } finally {
+    setIsLoading(false);
+  }
+};
 
   return (
     <div className="h-full bg-primary/30">
@@ -101,7 +108,14 @@ const Contact = () => {
               required
               aria-required
             />
-            <span>{result}</span>
+            <span
+              className={`text-sm ${
+                result.includes("Success") ? "text-green-500" : "text-red-500"
+              }`}
+              aria-live="polite"
+            >
+              {result}
+            </span>
             <button
               type="submit"
               className="btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent group"
